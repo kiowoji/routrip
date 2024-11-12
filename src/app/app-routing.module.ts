@@ -6,6 +6,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AllTripsComponent } from './pages/all-trips/all-trips.component';
 import { TripPageComponent } from './pages/trip-page/trip-page.component';
+import { TripFormComponent } from './pages/trip-form/trip-form.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupPageComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'all-trips', component: AllTripsComponent },
-  { path: 'trip', component: TripPageComponent},
+  { path: 'trip', component: TripPageComponent },
+  { path: 'create-trip', component: TripFormComponent },
+  { path: 'edit-trip/:id', component: TripFormComponent },
 ];
 
 @NgModule({
