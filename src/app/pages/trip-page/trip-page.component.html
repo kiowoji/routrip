@@ -1,0 +1,139 @@
+<div class="dashboard">
+    <div class="sidebar">
+        <a routerLink="/"><img src="./assets/logo.svg" alt="logo"></a>
+        <div class="sidebar-items">
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Dashboard</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>All Trips</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>New Trip</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+            </div>
+        </div>   
+    </div>
+
+    <div class="dashboard-content">
+        <div class="dashboard-heading">
+            <div class="trip-heading">
+                <h1>Santorini</h1>
+                <i class="fa-solid fa-pen"></i>
+                <div class="trip-status">Ongoing</div>
+            </div>
+            <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
+        </div>
+        
+        <div class="nearest-trip">
+            <div class="trip-info">
+                <div class="arrows">
+                    <button class="left-arrow"><img src="./assets/arrow-left.svg" alt="left"></button>
+                    <button class="right-arrow"><img src="./assets/arrow-right-black.svg" alt="right"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="trip-details">
+            <div class="trip-detail">
+                <span class="detail-name">Destination</span>
+                <span class="detail-value">Santorini, Greece</span>
+            </div>
+            <div class="trip-detail">
+                <span class="detail-name">People</span>
+                <span class="detail-value">2 people</span>
+            </div>
+            <div class="trip-detail">
+                <span class="detail-name">Travel date</span>
+                <span class="detail-value">20.11-26.11</span>
+            </div>
+        </div>
+
+        <div class="plan-wrapper">
+            <div class="plan">
+                <h2>Route plan</h2>
+                <div>
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 1
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>I'm visible because I am open</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 2
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>I'm visible because I am open</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 3
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>I'm visible because I am open</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 4
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>I'm visible because I am open</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 4
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>I'm visible because I am open</p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+            <div class="map" id="map">
+
+            </div>
+        </div>
+
+        <div class="gallery">
+            <h2>Memories Gallery</h2>
+            <div class="memory-gallery">
+                <img src="./assets/memory1.jpg" alt="memory-img" class="memory-img">
+                <img src="./assets/memory2.jpg" alt="memory-img" class="memory-img">
+                <img src="./assets/memory3.jpg" alt="memory-img" class="memory-img">
+            </div>
+            
+        </div>
+
+    </div>
+</div>

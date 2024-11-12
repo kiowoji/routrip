@@ -1,0 +1,128 @@
+.login{
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-img{
+    width: 50%;
+}
+
+.login-container{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper{
+    width: 60%;
+}
+
+.login-img img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    max-height: 90vh;
+}
+
+.login-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.login-heading h1{
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.login-heading a{
+    color: var(--accent-pink, #FF4081);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.login-form button, .social-btn {
+    width: 100%;
+}
+
+.login-form input{
+    padding: 20px 25px;
+    border-radius: 30px;
+    border: 1px solid #bdbdbd;
+    margin-bottom: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.option {
+   width: 100%; 
+   text-align: center; 
+   border-bottom: 1px solid #bdbdbd; 
+   line-height: 0.1em;
+   margin-bottom: 50px;
+} 
+
+.option span { 
+    background:#fff; 
+    padding:0 10px; 
+    font-family: Poppins;
+    font-size: 16px;
+    color: #bdbdbd;
+}
+
+.social-btn {
+    font-family: Poppins;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid var(--accent-pink);
+  border-radius: 30px;
+  padding: 20px 38px;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 24px;
+  
+  i {
+    margin-right: 10px;
+  }
+
+}
+
+.google-btn {
+  color: var(--accent-pink);
+  border-color: var(--accent-pink);
+}
+
+.google-btn:hover {
+  color: white;
+  background-color: var(--accent-pink);
+}
+
+.facebook-btn {
+  color: var(--accent-purple); 
+  border-color: var(--accent-purple);
+}
+
+.facebook-btn:hover {
+  color:white; 
+  background-color: var(--accent-purple);
+}

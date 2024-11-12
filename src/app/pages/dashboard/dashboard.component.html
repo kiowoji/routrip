@@ -1,0 +1,68 @@
+<div class="dashboard">
+    <div class="sidebar">
+        <a routerLink="/"><img src="./assets/logo.svg" alt="logo"></a>
+        <div class="sidebar-items">
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Dashboard</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>All Trips</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>New Trip</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+            </div>
+        </div>   
+    </div>
+
+    <div class="dashboard-content">
+        <div class="dashboard-heading">
+            <h1>Dashboard</h1>
+            <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
+        </div>
+        <div class="action-btns">
+            <button class="btn-orange"><a routerLink="/">Create New Trip</a></button>
+            <button class="btn-pink"><a routerLink="/">See All Created Trips</a></button>
+        </div>
+
+        <div class="nearest-trip">
+            <div class="trip-info">
+                <span>Nearest Trips</span>
+                <h2 class="trip-name">Santorini</h2>
+                <span class="trip-dates">20 Nov - 26 Nov</span>
+                <div class="arrows">
+                    <button class="left-arrow"><img src="./assets/arrow-left.svg" alt="left"></button>
+                    <button class="right-arrow"><img src="./assets/arrow-right-black.svg" alt="right"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="past-trip">
+            <div class="trip-info">
+                <span>Past Trips</span>
+                <h2 class="trip-name">Rome</h2>
+                <span class="trip-dates">14 Oct - 18 Oct</span>
+                <div class="arrows">
+                    <button class="left-arrow"><img src="./assets/arrow-left.svg" alt="left"></button>
+                    <button class="right-arrow"><img src="./assets/arrow-right-black.svg" alt="right"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
