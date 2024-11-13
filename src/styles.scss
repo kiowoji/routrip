@@ -45,6 +45,17 @@ a{
     background-color: var(--accent-pink);
 }
 
+.btn-white{
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid var(--accent-purple);
+    border-radius: 30px;
+    padding: 19px 38px;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: white;
+}
+
 .btn-primary a, .btn-pink a, .btn-orange a{
     color: white;
     font-weight: 500;

@@ -121,11 +121,11 @@
 
 .plan{
    padding-top: 30px;
-    width: 66%;
+    width: 67%;
 }
 
 .map{
-    width: 34%;
+    width: 30%;
     border-radius: 15px;
 }
 
@@ -202,4 +202,11 @@
     flex-direction: row;
     gap: 20px;
     align-items: flex-end;
+}
+
+.gallery-header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
 }
