@@ -212,6 +212,23 @@ flex: 1 0 0;
     border-radius: 50%;
 }
 
-.mat-expansion-panel-header span.mat-expansion-indicator.ng-trigger.ng-trigger-indicatorRotate.ng-star-inserted{
+.mat-expansion-panel-header span.mat-expansion-indicator::after{
     color: white!important;
+}
+
+.mat-expansion-panel.ng-star-inserted{
+    margin-top: 0;
+    box-shadow: none!important;
+}
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
+    background-color: var(--accent-orange);
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    height: 40px!important;
+}
+
+.mat-expansion-panel-header {
+    height: 40px!important;
 }

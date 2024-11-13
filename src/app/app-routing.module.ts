@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupPageComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'all-trips', component: AllTripsComponent },
-  { path: 'trip', component: TripPageComponent },
+  { path: 'trip/:id', component: TripPageComponent },
   { path: 'create-trip', component: TripFormComponent },
   { path: 'edit-trip/:id', component: TripFormComponent },
 ];

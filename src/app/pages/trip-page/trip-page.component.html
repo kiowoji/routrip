@@ -32,9 +32,9 @@
     <div class="dashboard-content">
         <div class="dashboard-heading">
             <div class="trip-heading">
-                <h1>Santorini</h1>
+                <h1>{{(trip$ | async)?.title }}</h1>
                 <i class="fa-solid fa-pen"></i>
-                <div class="trip-status">Ongoing</div>
+                <div class="trip-status">{{ (trip$ | async)?.status }}</div>
             </div>
             <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
         </div>
@@ -51,15 +51,15 @@
         <div class="trip-details">
             <div class="trip-detail">
                 <span class="detail-name">Destination</span>
-                <span class="detail-value">Santorini, Greece</span>
+                <span class="detail-value">{{ (trip$ | async)?.title }}</span>
             </div>
             <div class="trip-detail">
                 <span class="detail-name">People</span>
-                <span class="detail-value">2 people</span>
+                <span class="detail-value">{{ (trip$ | async)?.peopleQuantity }} people</span>
             </div>
             <div class="trip-detail">
                 <span class="detail-name">Travel date</span>
-                <span class="detail-value">20.11-26.11</span>
+                <span class="detail-value">{{ (trip$ | async)?.startDate | date:'d MMM' }} - {{ (trip$ | async)?.endDate | date:'d MMM' }}</span>
             </div>
         </div>
 
