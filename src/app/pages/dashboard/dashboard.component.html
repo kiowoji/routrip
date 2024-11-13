@@ -39,7 +39,9 @@
             <button class="btn-pink"><a routerLink="/all-trips">See All Created Trips</a></button>
         </div>
 
-        <div class="nearest-trip" [ngStyle]="{'background-image': 'url(' + nearestTrips[currentNearestIndex].images[0] + ')'}">
+        <div class="nearest-trip" 
+     [ngStyle]="{'background-image': 'url(' + (nearestTrips[currentNearestIndex]?.images?.[0] || '/assets/santorini.jpg') + ')'}">
+
             <div class="trip-info" (click)="goToTrip(nearestTrips[currentNearestIndex]?.id)">
                 <span>Nearest Trips</span>
                 <h2 class="trip-name">{{ nearestTrips[currentNearestIndex]?.title }}</h2>
@@ -58,7 +60,8 @@
             </div>
             </div>
 
-            <div class="past-trip" [ngStyle]="{'background-image': 'url(' + pastTrips[currentPastIndex].images[0] + ')'}">
+            <div class="past-trip" 
+     [ngStyle]="{'background-image': 'url(' + (pastTrips[currentPastIndex]?.images?.[0] || '/assets/rome.jpg') + ')'}">
             <div class="trip-info" (click)="goToTrip(pastTrips[currentPastIndex]?.id)">
                 <span>Past Trips</span>
                 <h2 class="trip-name">{{ pastTrips[currentPastIndex]?.title }}</h2>

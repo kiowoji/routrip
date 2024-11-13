@@ -24,7 +24,6 @@ getTrips(): Observable<Trip[]> {
       const data = a.payload.doc.data() as Trip;
       const id = a.payload.doc.id;
 
-      // Remove id from data to avoid conflict during spread
       const { id: _, ...tripData } = data;
 
       return { id, ...tripData };
@@ -61,7 +60,7 @@ private getEmptyTrip(): Trip {
 getNearestTrips(): Observable<Trip[]> {
   const today = new Date();
   return this.afs.collection<Trip>('trips', ref =>
-    ref.orderBy('startDate', 'asc').limit(5)
+    ref.orderBy('startDate', 'asc')
   ).snapshotChanges().pipe(
     map(actions => actions
       .map(a => {
@@ -83,10 +82,11 @@ getNearestTrips(): Observable<Trip[]> {
   );
 }
 
+
 getPastTrips(): Observable<Trip[]> {
   const today = new Date();
   return this.afs.collection<Trip>('trips', ref =>
-    ref.orderBy('endDate', 'desc').limit(5)
+    ref.orderBy('endDate', 'desc')
   ).snapshotChanges().pipe(
     map(actions => actions
       .map(a => {
@@ -107,6 +107,7 @@ getPastTrips(): Observable<Trip[]> {
     )
   );
 }
+
 
 
 
