@@ -56,6 +56,58 @@ private getEmptyTrip(): Trip {
     days: []
   };
 }
+  
+    // Method to get upcoming trips
+getNearestTrips(): Observable<Trip[]> {
+  const today = new Date();
+  return this.afs.collection<Trip>('trips', ref =>
+    ref.orderBy('startDate', 'asc').limit(5)
+  ).snapshotChanges().pipe(
+    map(actions => actions
+      .map(a => {
+        const data = a.payload.doc.data() as Trip;
+        const id = a.payload.doc.id;
+
+        // Convert startDate and endDate to Date objects if they are strings
+        if (typeof data.startDate === 'string') {
+          data.startDate = new Date(data.startDate);
+        }
+        if (typeof data.endDate === 'string') {
+          data.endDate = new Date(data.endDate);
+        }
+
+        return { id, ...data };
+      })
+      .filter(trip => trip.startDate! >= today) // Filter after converting to Date
+    )
+  );
+}
+
+getPastTrips(): Observable<Trip[]> {
+  const today = new Date();
+  return this.afs.collection<Trip>('trips', ref =>
+    ref.orderBy('endDate', 'desc').limit(5)
+  ).snapshotChanges().pipe(
+    map(actions => actions
+      .map(a => {
+        const data = a.payload.doc.data() as Trip;
+        const id = a.payload.doc.id;
+
+        // Convert startDate and endDate to Date objects if they are strings
+        if (typeof data.startDate === 'string') {
+          data.startDate = new Date(data.startDate);
+        }
+        if (typeof data.endDate === 'string') {
+          data.endDate = new Date(data.endDate);
+        }
+
+        return { id, ...data };
+      })
+      .filter(trip => trip.endDate! < today) // Filter after converting to Date
+    )
+  );
+}
+
 
 
   // Update a trip
