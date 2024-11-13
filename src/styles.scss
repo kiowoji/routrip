@@ -232,3 +232,7 @@ flex: 1 0 0;
 .mat-expansion-panel-header {
     height: 40px!important;
 }
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #e7e2f8!important;
+}

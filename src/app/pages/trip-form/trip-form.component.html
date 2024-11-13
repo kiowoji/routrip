@@ -9,21 +9,21 @@
                     </a>
             </div>
             <div class="sidebar-item">
-                    <a routerLink="/dashboard">
+                    <a routerLink="/all-trips">
                         <i class="fa-solid fa-eye"></i>
                         <span>All Trips</span>
                     </a>
             </div>
             <div class="sidebar-item">
-                    <a routerLink="/dashboard">
+                    <a routerLink="/create-trip">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <span>New Trip</span>
                     </a>
             </div>
             <div class="sidebar-item">
-                    <a routerLink="/dashboard">
+                    <a routerLink="/">
                         <i class="fa-solid fa-user"></i>
-                        <span>Profile</span>
+                        <span>Log Out</span>
                     </a>
             </div>
         </div>   
@@ -35,68 +35,90 @@
             <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
         </div>
 
-        <form (ngSubmit)="onSubmit()" class="trip-form">
+        <div class="form-wrapper">
+            <form (ngSubmit)="onSubmit()" class="trip-form">
             <mat-form-field appearance="fill">
                 <mat-label>Title</mat-label>
                 <input matInput [(ngModel)]="trip.title" name="title" placeholder="Title" required />
             </mat-form-field>
 
+            <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                <mat-form-field appearance="fill">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [(ngModel)]="trip.startDate" name="startDate" type="date" required />
+                </mat-form-field>
+                </td>
+                <td>
+                <mat-form-field appearance="fill">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [(ngModel)]="trip.endDate" name="endDate" type="date" required />
+                </mat-form-field>
+                </td>
+            </tr>
+            </table>
+
+            <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill">
+                    <mat-label>People Quantity</mat-label>
+                    <input matInput [(ngModel)]="trip.peopleQuantity" name="peopleQuantity" type="number" placeholder="People Quantity" required />
+                    </mat-form-field>
+                </td>
+                <td>
+                <mat-form-field appearance="fill">
+                    <mat-label>Status</mat-label>
+                    <mat-select [(ngModel)]="trip.status" name="status" required>
+                        <mat-option value="Planned">Planned</mat-option>
+                        <mat-option value="In Progress">In Progress</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                </td>
+            </tr>
+            </table>
+
+            <div class="form-text">To add a map, please enter location coordinates:</div>
+            <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill">
+                    <mat-label>Latitude</mat-label>
+                    <input type="number" matInput [(ngModel)]="trip.coordinates.lat" name="lat" id="lat" required />
+                    </mat-form-field>
+                </td>
+                <td>
+                <mat-form-field appearance="fill">
+                    <mat-label>Longitude</mat-label>
+                    <input type="number"  matInput [(ngModel)]="trip.coordinates.lng" name="lng" id="lng" required/>
+                </mat-form-field>
+                </td>
+            </tr>
+            </table>
+            
             <mat-form-field appearance="fill">
-                <mat-label>Status</mat-label>
-                <input matInput [(ngModel)]="trip.status" name="status" placeholder="Status" required />
+                <mat-label>Days Information</mat-label >
+                <textarea matInput  [(ngModel)]="trip.days" name="days" id="days"></textarea>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Start Date</mat-label>
-                <input matInput [(ngModel)]="trip.startDate" name="startDate" type="date" required />
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>End Date</mat-label>
-                <input matInput [(ngModel)]="trip.endDate" name="endDate" type="date" required />
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>People Quantity</mat-label>
-                <input matInput [(ngModel)]="trip.peopleQuantity" name="peopleQuantity" type="number" placeholder="People Quantity" required />
-            </mat-form-field>
-
-            <div>
-                <label for="images">Upload Images</label>
-                <input type="file" id="images" (change)="onImageSelect($event)" multiple />
-                <div *ngIf="trip.images.length">
+            <div class="pics-upload">
+                <div class="form-text">Select images:</div>
+                <input type="file" id="images" (change)="onImageSelect($event)" multiple class="custom-file-input" />
+                <div *ngIf="trip.images.length" class="img-container">
                 <div *ngFor="let image of trip.images">
                     <img [src]="image" alt="Image preview" width="100" />
                 </div>
                 </div>
             </div>
 
-            <div>
-                <label for="memoryImages">Upload Memory Images</label>
-                <input type="file" id="memoryImages" (change)="onMemoryImageSelect($event)" multiple />
-                <div *ngIf="trip.memoryImages.length">
-                <div *ngFor="let memoryImage of trip.memoryImages">
-                    <img [src]="memoryImage" alt="Memory Image preview" width="100" />
-                </div>
-                </div>
-            </div>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Latitude</mat-label>
-                <input type="number" matInput [(ngModel)]="trip.coordinates.lat" name="lat" id="lat" required />
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Longitude</mat-label>
-                <input type="number"  matInput [(ngModel)]="trip.coordinates.lng" name="lng" id="lng" required/>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label >Days Information</mat-label >
-                <textarea matInput  [(ngModel)]="trip.days" name="days" id="days"></textarea>
-            </mat-form-field>
-
-            <button type="submit">{{ isEditMode ? 'Update Trip' : 'Create Trip' }}</button>
+            <button type="submit" class="btn-pink">{{ isEditMode ? 'Update Trip' : 'Create Trip' }}</button>
             </form>
+            <img src="./assets/route2.png" alt="pic" class="form-img">
+        </div>
+
+        
     </div>
 
 
