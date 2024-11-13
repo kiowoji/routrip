@@ -46,6 +46,7 @@ private getEmptyTrip(): Trip {
   return {
     id: '',
     title: '',
+    status: '',
     startDate: new Date(),
     endDate: new Date(),
     peopleQuantity: 0,

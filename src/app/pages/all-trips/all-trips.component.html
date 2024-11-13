@@ -40,128 +40,28 @@
         </div>
 
         <div class="card-container">
-        <div class="card">
-            <div class="card-image">
-                <div class="card-header">ongoing</div>
+        <div class="card" *ngFor="let trip of trips">
+            <div class="card-image" [ngStyle]="{'background-image': 'url(' + trip.images[0] + ')'}">
+                <div class="card-header">{{ trip.status }}</div>
             </div>
             <div class="card-content">
-                <h3>SANTORINI</h3>
+                <h3>{{ trip.title }}</h3>
                 <div class="card-item">
                     <i class="fa-solid fa-calendar-check"></i>
-                    <span class="trip-date">20 Nov - 28 Nov</span>
+                    <span class="trip-date">{{ trip.startDate | date:'d MMM' }} - {{ trip.endDate | date:'d MMM' }}</span>
                 </div>
                 <div class="card-item">
                     <i class="fa-solid fa-user-group"></i>
-                    <span class="trip-people">10 people going</span>
+                    <span class="trip-people">{{ trip.peopleQuantity }} people going</span>
                 </div>
                 <div class="card-item">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span class="trip-date">12 places to visit</span>
+                    <span class="trip-date">{{ trip.days.length }} places to visit</span>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-image">
-                <div class="card-header">ongoing</div>
-            </div>
-            <div class="card-content">
-                <h3>SANTORINI</h3>
-                <div class="card-item">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span class="trip-date">20 Nov - 28 Nov</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span class="trip-people">10 people going</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="trip-date">12 places to visit</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <div class="card-header">ongoing</div>
-            </div>
-            <div class="card-content">
-                <h3>SANTORINI</h3>
-                <div class="card-item">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span class="trip-date">20 Nov - 28 Nov</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span class="trip-people">10 people going</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="trip-date">12 places to visit</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <div class="card-header">ongoing</div>
-            </div>
-            <div class="card-content">
-                <h3>SANTORINI</h3>
-                <div class="card-item">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span class="trip-date">20 Nov - 28 Nov</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span class="trip-people">10 people going</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="trip-date">12 places to visit</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <div class="card-header">ongoing</div>
-            </div>
-            <div class="card-content">
-                <h3>SANTORINI</h3>
-                <div class="card-item">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span class="trip-date">20 Nov - 28 Nov</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span class="trip-people">10 people going</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="trip-date">12 places to visit</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <div class="card-header">ongoing</div>
-            </div>
-            <div class="card-content">
-                <h3>SANTORINI</h3>
-                <div class="card-item">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span class="trip-date">20 Nov - 28 Nov</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span class="trip-people">10 people going</span>
-                </div>
-                <div class="card-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="trip-date">12 places to visit</span>
-                </div>
-            </div>
-        </div>
-        
     </div>
+
         
     </div>
 </div>

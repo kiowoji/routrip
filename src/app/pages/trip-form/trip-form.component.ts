@@ -10,6 +10,7 @@ import { Trip } from 'src/app/interfaces/trip';
 export class TripFormComponent implements OnInit {
   trip: Trip = {
     title: '',
+    status: '',
     startDate: null,
     endDate: null,
     peopleQuantity: 0,
