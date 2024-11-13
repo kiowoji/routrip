@@ -3,6 +3,7 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/interfaces/trip';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import * as L from 'leaflet';  // Import Leaflet
 
 @Component({
   selector: 'app-trip-page',
@@ -16,6 +17,9 @@ export class TripPageComponent implements OnInit {
   currentImageIndex: number = 0; 
   tripImages: string[] = []; 
   currentImage: string = ''; 
+
+  // Map variable to store the Leaflet map instance
+  map: L.Map | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,8 +36,33 @@ export class TripPageComponent implements OnInit {
           this.tripImages = trip.images;
           this.currentImage = this.tripImages[this.currentImageIndex]; 
         }
+
+        // After fetching the trip, set up the map with the coordinates
+        if (trip.coordinates && trip.coordinates.lat && trip.coordinates.lng) {
+          this.initMap(trip.coordinates.lat, trip.coordinates.lng);
+        }
       });
     }
+  }
+
+  // Initialize the map with the provided latitude and longitude
+  initMap(lat: number, lng: number): void {
+    if (this.map) {
+      this.map.remove();  // Remove existing map if already initialized
+    }
+
+    // Create the map centered at the provided coordinates
+    this.map = L.map('map').setView([lat, lng], 12);
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(this.map);
+
+    // // Add a marker at the coordinates
+    // L.marker([lat, lng]).addTo(this.map)
+    //   .bindPopup('<b>Trip Location</b>')
+    //   .openPopup();
   }
 
   changeImage(direction: number): void {

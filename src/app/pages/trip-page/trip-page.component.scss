@@ -126,6 +126,7 @@
 
 .map{
     width: 34%;
+    border-radius: 15px;
 }
 
 .mat-accordion{
@@ -193,4 +194,12 @@
 
 .btn-container button{
     width: 100%;
+}
+
+.plan-wrapper{
+    padding-top: 36px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-end;
 }
