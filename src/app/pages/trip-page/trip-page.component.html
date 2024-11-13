@@ -33,17 +33,18 @@
         <div class="dashboard-heading">
             <div class="trip-heading">
                 <h1>{{(trip$ | async)?.title }}</h1>
-                <i class="fa-solid fa-pen"></i>
                 <div class="trip-status">{{ (trip$ | async)?.status }}</div>
+                <i class="fa-solid fa-pen"></i>
+                <i class="fa-solid fa-trash" (click)="showDeleteModal()"></i>  
             </div>
             <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
         </div>
         
-        <div class="nearest-trip">
+        <div class="nearest-trip" [ngStyle]="{'background-image': 'url(' + currentImage + ')'}">
             <div class="trip-info">
                 <div class="arrows">
-                    <button class="left-arrow"><img src="./assets/arrow-left.svg" alt="left"></button>
-                    <button class="right-arrow"><img src="./assets/arrow-right-black.svg" alt="right"></button>
+                    <button class="left-arrow"><img src="./assets/arrow-left.svg" alt="left" (click)="changeImage(-1)"></button>
+                    <button class="right-arrow"><img src="./assets/arrow-right-black.svg" alt="right" (click)="changeImage(1)"></button>
                 </div>
             </div>
         </div>
@@ -137,3 +138,13 @@
 
     </div>
 </div>
+<div class="confirmation-modal" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>Are you sure you want to delete this trip?</h2>
+    <div class="btn-container">
+        <button (click)="deleteTrip()" class="btn-pink">Yes, delete</button>
+        <button (click)="closeModal()" class="btn-orange">No, cancel</button>
+    </div>
+  </div>
+</div>
+
