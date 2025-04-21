@@ -1,0 +1,174 @@
+<div>
+  <header class="header">
+    <div class="header__logo">Routrip <img src="./assets/Roundtrip.svg" alt="logo"></div>
+    <div class="header_buttons">
+      <button class="header__login"><a routerLink="/login">Login</a></button>
+      <button class="header__signup"><a routerLink="/sign-up">Sign Up</a></button>
+    </div>
+  </header>
+  <main>
+
+    <section class="home">
+      <div class="home__text">
+        <div class="heading">
+          <span class="text__explore">Explore.&nbsp;</span>
+          <span class="text__plan">Plan.&nbsp;</span>
+          <span class="text__enjoy">Enjoy.&nbsp;</span>
+          <br>
+          <span>Your Personal Travel Companion</span>
+        </div>
+        <p class="description">From itinerary planning to memory sharing, organize all your travel adventures in one place.</p>
+        <div class="btns__container">
+          <button class="btn-primary"><a routerLink="/sign-up">Get Started</a></button>
+          <button class="btn-white">Watch Demo</button>
+        </div>
+      </div>
+      <div class="home__img">
+        <img src="./assets/home-img.png" alt="home">
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="uppercase-text">key features</div>
+      <h2>We offer best services</h2>
+      <p class="description">"Routrip is here to help you plan your perfect trip. Simply choose your destination, organize your itinerary, and let us handle the rest. From photos to maps, we make your travel planning effortless and enjoyable."</p>
+      <div class="features-list">
+        <div class="feature-element">
+          <div class="feature-icon feature-purple">
+            <img src="./assets/User.png" alt="icon">
+          </div>
+          <div class="feature-name">Personalized Accounts and Travel Tracking</div>
+        </div>
+
+        <div class="feature-element">
+          <div class="feature-icon feature-orange">
+            <img src="./assets/Inscription.png" alt="icon">
+          </div>
+          <div class="feature-name">Effortless Trip Creation and Management</div>
+        </div>
+
+        <div class="feature-element">
+          <div class="feature-icon feature-pink">
+            <img src="./assets/Tear-Off-Calendar.png" alt="icon">
+          </div>
+          <div class="feature-name">Day-by-Day Itinerary with Location Highlights</div>
+        </div>
+
+        <div class="feature-element">
+          <div class="feature-icon feature-pink">
+            <img src="./assets/Picture.png" alt="icon">
+          </div>
+          <div class="feature-name">Capture Memories with Photos and Notes</div>
+        </div>
+
+        <div class="feature-element">
+          <div class="feature-icon feature-orange">
+            <img src="./assets/Map-Marker.png" alt="icon">
+          </div>
+          <div class="feature-name">Interactive Maps for Seamless Route Planning</div>
+        </div>
+
+        <div class="feature-element">
+          <div class="feature-icon feature-purple">
+            <img src="./assets/Map-Pin.png" alt="icon">
+          </div>
+          <div class="feature-name">All Your Travel Plans in One Place</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="top-destinations">
+      <div>
+        <div>
+          <div class="uppercase-text">top destination</div>
+          <h2>Explore top destination</h2>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card">
+            <div class="card-header">Switzerland</div>
+            <img src="./assets/switzerland.webp" alt="Beach" class="card-image">
+            <div class="card-content">
+                <h3>Grindelwald, Switzerland</h3>
+                <div class="rating">
+                    <span>4.9</span> 
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Zakynthos</div>
+            <img src="./assets/Zakynthos.jpg" alt="Beach" class="card-image">
+            <div class="card-content">
+                <h3>Zakynthos, Greece</h3>
+                <div class="rating">
+                    <span>4.9</span> 
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Hungary</div>
+            <img src="./assets/budapest.jpg" alt="Beach" class="card-image">
+            <div class="card-content">
+                <h3>Budapest, Hungary</h3>
+                <div class="rating">
+                    <span>4.9</span> 
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="uppercase-text">TESTIMONIALS</div>
+      <h2>Trust our clients</h2>
+     <div class="slider-container">
+      <button class="arrow left-arrow" (click)="prevSlide()"><img src="./assets/arrow-left.svg" alt="left"></button>
+      <div class="testimonial-slider">
+        <div
+          *ngFor="let testimonial of testimonials; let i = index"
+          class="slide"
+          [class.active]="i === currentSlide"
+        >
+          <img [src]="testimonial.image" alt="User" class="user-image">
+          <h3>{{ testimonial.name }}</h3>
+          <p class="role">{{ testimonial.role }}</p>
+          <div class="rating">
+            <span class="star" *ngFor="let _ of [].constructor(testimonial.rating)">&#9733;</span>
+          </div>
+          <p class="testimonial">{{ testimonial.text }}</p>
+        </div>
+      </div>
+      <button class="arrow right-arrow" (click)="nextSlide()"><img src="./assets/arrow-right.svg" alt="right"></button>
+      
+    </div>
+      <div class="dots">
+        <span
+          *ngFor="let _ of testimonials; let i = index"
+          class="dot"
+          [class.active]="i === currentSlide"
+          (click)="showSlide(i)"
+        ></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+  <div class="footer-content">
+    <div class="social-icons">
+      <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="icon"><i class="fab fa-google"></i></a>
+      <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="icon"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+    <div class="footer-copyright">
+      <p class="copyright">© 2024 Copyright: Routrip</p>
+    </div>
+  
+</footer>
+</div>

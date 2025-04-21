@@ -1,0 +1,86 @@
+<div class="dashboard">
+    <div class="sidebar">
+        <a routerLink="/"><img src="./assets/logo.svg" alt="logo"></a>
+        <div class="sidebar-items">
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Dashboard</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/all-trips">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>All Trips</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/create-trip">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>New Trip</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Log out</span>
+                    </a>
+            </div>
+        </div>   
+    </div>
+
+    <div class="dashboard-content">
+        <div class="dashboard-heading">
+            <h1>Dashboard</h1>
+            <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
+        </div>
+        <div class="action-btns">
+            <button class="btn-orange"><a routerLink="/create-trip">Create New Trip</a></button>
+            <button class="btn-pink"><a routerLink="/all-trips">See All Created Trips</a></button>
+        </div>
+
+        <div class="nearest-trip" 
+     [ngStyle]="{'background-image': 'url(' + (nearestTrips[currentNearestIndex]?.images?.[0] || '/assets/santorini.jpg') + ')'}">
+
+            <div class="trip-info" (click)="goToTrip(nearestTrips[currentNearestIndex]?.id)">
+                <span>Nearest Trips</span>
+                <h2 class="trip-name">{{ nearestTrips[currentNearestIndex]?.title }}</h2>
+                <span class="trip-dates">
+                {{ nearestTrips[currentNearestIndex]?.startDate | date:'dd MMM' }} -
+                {{ nearestTrips[currentNearestIndex]?.endDate | date:'dd MMM' }}
+                </span>
+                <div class="arrows">
+                <button (click)="previousNearestTrip($event)" class="left-arrow">
+                    <img src="./assets/arrow-left.svg" alt="left">
+                </button>
+                <button (click)="nextNearestTrip($event)" class="right-arrow">
+                    <img src="./assets/arrow-right-black.svg" alt="right">
+                </button>
+                </div>
+            </div>
+            </div>
+
+            <div class="past-trip" 
+     [ngStyle]="{'background-image': 'url(' + (pastTrips[currentPastIndex]?.images?.[0] || '/assets/rome.jpg') + ')'}">
+            <div class="trip-info" (click)="goToTrip(pastTrips[currentPastIndex]?.id)">
+                <span>Past Trips</span>
+                <h2 class="trip-name">{{ pastTrips[currentPastIndex]?.title }}</h2>
+                <span class="trip-dates">
+                {{ pastTrips[currentPastIndex]?.startDate | date:'dd MMM' }} -
+                {{ pastTrips[currentPastIndex]?.endDate | date:'dd MMM' }}
+                </span>
+                <div class="arrows">
+                <button (click)="previousPastTrip($event)" class="left-arrow">
+                    <img src="./assets/arrow-left.svg" alt="left">
+                </button>
+                <button (click)="nextPastTrip($event)" class="right-arrow">
+                    <img src="./assets/arrow-right-black.svg" alt="right">
+                </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,85 @@
+.trip-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-mdc-form-field{
+    width: 100%;
+}
+
+.form-text{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+form{
+    width: 100%;
+}
+
+.form-img{
+    width: 30%;
+    height: -webkit-fill-avaliable;
+    object-fit: contain;
+}
+
+.custom-file-input{
+    width: 100%;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input[type=file]{
+    color:transparent;
+}
+.custom-file-input::before {
+  content: '+ Select images';
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 38px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+  background: var(--accent-orange);
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  width: auto;
+  display: block;
+  text-align: center;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.img-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.img-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.img-container img {
+    width: 100%;          
+    height: auto;
+    aspect-ratio: 1 / 1;    
+    object-fit: cover;      
+    border-radius: 8px;  
+    box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.20);     
+}

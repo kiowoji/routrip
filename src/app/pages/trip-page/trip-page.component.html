@@ -1,0 +1,164 @@
+<div class="dashboard">
+    <div class="sidebar">
+        <a routerLink="/"><img src="./assets/logo.svg" alt="logo"></a>
+        <div class="sidebar-items">
+            <div class="sidebar-item">
+                    <a routerLink="/dashboard">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Dashboard</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/all-trips">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>All Trips</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/create-trip">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>New Trip</span>
+                    </a>
+            </div>
+            <div class="sidebar-item">
+                    <a routerLink="/">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Log out</span>
+                    </a>
+            </div>
+        </div>   
+    </div>
+
+    <div class="dashboard-content">
+        <div class="dashboard-heading">
+            <div class="trip-heading">
+                <h1>{{(trip$ | async)?.title }}</h1>
+                <div class="trip-status">{{ (trip$ | async)?.status }}</div>
+                <i class="fa-solid fa-pen"></i>
+                <i class="fa-solid fa-trash" (click)="showDeleteModal()"></i>  
+            </div>
+            <img src="./assets/Avatar.png" alt="avatar" class="profile-pic">
+        </div>
+        
+        <div class="nearest-trip" [ngStyle]="{'background-image': 'url(' + currentImage + ')'}">
+            <div class="trip-info">
+                <div class="arrows">
+                    <button class="left-arrow"><img src="./assets/arrow-left.svg" alt="left" (click)="changeImage(-1)"></button>
+                    <button class="right-arrow"><img src="./assets/arrow-right-black.svg" alt="right" (click)="changeImage(1)"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="trip-details">
+            <div class="trip-detail">
+                <span class="detail-name">Destination</span>
+                <span class="detail-value">{{ (trip$ | async)?.title }}</span>
+            </div>
+            <div class="trip-detail">
+                <span class="detail-name">People</span>
+                <span class="detail-value">{{ (trip$ | async)?.peopleQuantity }} people</span>
+            </div>
+            <div class="trip-detail">
+                <span class="detail-name">Travel date</span>
+                <span class="detail-value">{{ (trip$ | async)?.startDate | date:'d MMM' }} - {{ (trip$ | async)?.endDate | date:'d MMM' }}</span>
+            </div>
+        </div>
+
+        <div class="plan-wrapper">
+            <div class="plan">
+                <h2>Route plan</h2>
+                <div>
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 1
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 2
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 3
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 4
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 5
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="panel-header">
+                            <mat-panel-title class="panel-day">
+                                Day 6
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+            <div class="map" id="map" style="height: 65vh;">
+
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-header">
+                <h2>Memories Gallery</h2>
+                <button class="btn-white"><i class="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Memories</button>
+            </div>
+            
+            <div class="memory-gallery">
+                <img src="./assets/memory1.jpg" alt="memory-img" class="memory-img">
+                <img src="./assets/memory2.jpg" alt="memory-img" class="memory-img">
+                <img src="./assets/memory3.jpg" alt="memory-img" class="memory-img">
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+<div class="confirmation-modal" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>Are you sure you want to delete this trip?</h2>
+    <div class="btn-container">
+        <button (click)="deleteTrip()" class="btn-pink">Yes, delete</button>
+        <button (click)="closeModal()" class="btn-orange">No, cancel</button>
+    </div>
+  </div>
+</div>
+
