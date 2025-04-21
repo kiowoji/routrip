@@ -1,6 +1,6 @@
-#Routrip
+# Routrip
 
-##✈️ Routrip is a web application for trip planning.
+## ✈️ Routrip is a web application for trip planning.
 
 It allows users to organize their travels, manage destinations, and customize itineraries easily and efficiently.
 
@@ -10,13 +10,13 @@ This project was generated with Angular CLI version 15.2.6.
 
 🚀 How to Run the Project
 
-##Clone the repository
+## Clone the repository
 `git clone https://github.com/kiowoji/routrip.git`
-##Navigate into the project folder
+## Navigate into the project folder
 `cd routrip`
-##Install dependencies
+## Install dependencies
 `npm install`
-##Run the development server
+## Run the development server
 `ng serve`
-##Open in browser
+## Open in browser
 Go to http://localhost:4200/ — the app will automatically reload when you change any source files.
