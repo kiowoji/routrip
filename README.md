@@ -4,6 +4,14 @@
 
 It allows users to organize their travels, manage destinations, and customize itineraries easily and efficiently.
 
+![Demo Image](src/assets/demo-main.png)
+
+![Demo Image](src/assets/demo-login.png)
+
+![Demo Image](src/assets/demo-dashboard.png)
+
+![Demo Image](src/assets/demo-list.png)
+
 This project is built with Angular, uses Firebase for backend services (authentication, database, storage), and is styled with SCSS for modular and maintainable styles.
 
 This project was generated with Angular CLI version 15.2.6.
